@@ -24,7 +24,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.csc414.survival",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDgEYkFzYUF5gc0w3W8mWOpak5M712hisg"
+
     }
+  }
   }
 }

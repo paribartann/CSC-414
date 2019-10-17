@@ -1,9 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, Alert, View, Image } from "react-native";
 import { Container, Item, Form, Input, Button, Label } from "native-base";
 import firebase from './FirebaseConfig';
+import logo from '../images/logo.png';
 
 
+const auth = firebase.auth();
 
 export default class SignUp extends React.Component {
 
@@ -13,21 +15,21 @@ export default class SignUp extends React.Component {
     { fname: '',
       lname: '',
       email: '',
-      password: '',
-      errorMessage: null
+      password: ''
     };
   }
 
-  
+
   handleSignUp = () => {
 
     const { fname, lname, email, password } = this.state
 
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then( (user) =>
-      {
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((result) => 
+        {
+          result.user.updateProfile({
+            displayName: fname
+          })
 
         firebase.database().ref('users/').push({
           first_name: fname,
@@ -38,85 +40,89 @@ export default class SignUp extends React.Component {
         }).catch((error) => {
             console.log('ERROR!')
         });
+        
+        this.props.navigation.navigate('VerifyScreen');
 
-        var userI = firebase.auth().currentUser;
-        userI.sendEmailVerification()
-        .then(function() {
-        console.log("Email Sent");
-        })
-        .catch(function(error){
-          console.log(error);
-          console.log("An error happened!")
-        });
-        console.log('reached here');
-        this.props.navigation.navigate('Verify');
-      })
-      .catch(error => this.setState({ errorMessage: error.message }));
-
+        })  //end of then
+      .catch(error => {
+        console.log(error.code);
+        switch(error.code) {
+          case 'auth/email-already-in-use':
+            Alert.alert('Email already in use !')
+              break;
+          case 'auth/invalid-email':
+            Alert.alert('INVALID EMAIL!')
+              break;
+       }
+      });   
   }
 
     render() {
     return (
+      <ScrollView>
+        <Container style={styles.container}>
+          <View >
+            <Image resizeMode="contain" source={logo} />
+          </View>
+          <Form>
+            <Item floatingLabel>
+              <Label>First Name </Label>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={fname => this.setState({ fname })}
+              />
+            </Item>
 
-      <Container style={styles.container}>
-        <Form>
-          <Item floatingLabel>
-            <Label>First Name: </Label>
-            <Input
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={fname => this.setState({ fname })}
-            />
-          </Item>
+            <Item floatingLabel>
+              <Label>Last Name </Label>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={lname => this.setState({ lname })}
+              />
+            </Item>
 
-          <Item floatingLabel>
-            <Label>Last Name: </Label>
-            <Input
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={lname => this.setState({ lname })}
-            />
-          </Item>
+            <Item floatingLabel>
+              <Label>Email</Label>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={email => this.setState({ email })}
+              />
+            </Item>
 
-          <Item floatingLabel>
-            <Label>Email</Label>
-            <Input
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={email => this.setState({ email })}
-            />
-          </Item>
+            <Item floatingLabel>
+              <Label>Password</Label>
+              <Input
+                secureTextEntry={true}
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={password => this.setState({ password })}
+              />
+            </Item>
+            
+            <Button
+              full
+              rounded
+              success
+              style={{ marginTop: 20 }}
+              onPress={this.handleSignUp}
+            >
+              <Text>Signup</Text>
+            </Button>
 
-          <Item floatingLabel>
-            <Label>Password</Label>
-            <Input
-              secureTextEntry={true}
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={password => this.setState({ password })}
-            />
-          </Item>
-          
-          <Button
-            full
-            rounded
-            success
-            style={{ marginTop: 20 }}
-            onPress={this.handleSignUp}
-          >
-            <Text>Signup</Text>
-          </Button>
-
-          <Button
-            full
-            rounded
-            style={{ marginTop: 20 }}
-            onPress={() => this.props.navigation.navigate('Login')}
-          >
-            <Text>Already have an account? Login</Text>
-          </Button>
-        </Form>
-      </Container>
+            <Button
+              full
+              rounded
+              style={{ marginTop: 20 }}
+              onPress={() => this.props.navigation.navigate('SignIn')}
+            >
+              <Text>Already have an account? Login</Text>
+            </Button>
+          </Form>
+        </Container>
+      </ScrollView>
     )
   }
 }

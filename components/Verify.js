@@ -1,23 +1,36 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
+import { StyleSheet, Text, View, Button } from 'react-native'
+import firebase from './FirebaseConfig';
 
 export default class Verify extends React.Component {
+
+  componentDidMount() {
+    var userI = firebase.auth().currentUser;
+    if(userI.emailVerified)
+    {
+      userI.sendEmailVerification()
+      .then(function() {
+      console.log("Email Sent For Verification");
+      })
+      .catch(function(error){
+        console.log(error);
+        console.log("An error happened While Verifying!")
+      });
+    }
+}
 
     render() {
         return (
         <View style={styles.container}>
             <Text>
-                Please Check you email and Verify it!
+                Please Check you email and Verify it!   
             </Text>
+            <Button title="Already Verified? Go Back to Login!" 
+            onPress={() => this.props.navigation.navigate('SignIn')}  />
         </View>
     )
   }
-
-
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
