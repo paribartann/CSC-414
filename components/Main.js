@@ -9,6 +9,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 
+// import Map from './Maps';
+// import FoodAppContainer from './Foods/FoodHomeScreen';
+
 const customDrawerComponent = (props) => (
 
   <ScrollView>
@@ -18,7 +21,8 @@ const customDrawerComponent = (props) => (
     </SafeAreaView>
 
     <TouchableOpacity onPress={() => {
-          firebase.auth().signOut()}} >
+      firebase.auth().signOut()
+    }} >
       <View style={styles.item}>
         <Text style={styles.label}>Logout</Text>
       </View>
@@ -29,6 +33,8 @@ const customDrawerComponent = (props) => (
 
 class Main extends React.Component {
 
+  _isMounted = false;
+
   constructor(props) {
     super(props);
 
@@ -38,12 +44,18 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-
+    this._isMounted = true;
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.setState({ currentUser: user.displayName });
+        if (this._isMounted) {
+          this.setState({ currentUser: user.displayName });
+        }
       }
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
 
@@ -51,22 +63,30 @@ class Main extends React.Component {
     return (
 
       <View style={styles.container}>
+        <View >
 
-        <Text style={{ textAlign: "center" }}>
-          Welcome to the main page! Hi, {this.state.currentUser}!
+          <Text style={{ fontSize: 18 }}>
+            Welcome to the main page! Hi, {this.state.currentUser}!
         </Text>
+        </View>
 
-        <Button
-          title="Press Here to See the Map"
-          style={{ marginTop: 20 }}
-          onPress={() => this.props.navigation.navigate('MapPage')
-          }>
-          <Text>Press Here to See the Map</Text>
-        </Button>
-
-
+        <View style={styles.menu}>
+          <Button
+            title="FOOD"
+            style={{ marginTop: 20 }}
+            onPress={() => this.props.navigation.navigate('FoodHome')
+            } />
+              
+          <Button
+            title="MAP"
+            style={{ marginTop: 20 }}
+            onPress={() => this.props.navigation.navigate('MapPage')
+            } />
+        </View>
 
       </View>
+
+
 
 
     )
@@ -139,6 +159,7 @@ const ProfileNavigator = createStackNavigator(
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
+
     Home: HomeNavigator,
     Profile: ProfileNavigator
   },
@@ -147,17 +168,33 @@ const MyDrawerNavigator = createDrawerNavigator(
     contentComponent: customDrawerComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle' 
+    drawerToggleRoute: 'DrawerToggle'
   },
 );
+
+
+// const MyMainPageStackNavigator = createStackNavigator(
+//   {
+//     HomePage: MyDrawerNavigator,
+//     MapPage: Map, 
+//     FoodAppContainer: FoodAppContainer 
+//   },
+// )
+
+
+// const MyMainPage = createAppContainer(MyMainPageStackNavigator);
 
 const MyMainPage = createAppContainer(MyDrawerNavigator);
 
 
-
-
 const styles = StyleSheet.create({
   container: {
+    padding: 30,
+    flex: 1,
+    alignItems: 'center'
+  },
+  menu: {
+    padding: 10,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'

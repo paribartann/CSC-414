@@ -7,9 +7,20 @@ import SignUp from './components/SignUp'
 import Verify from './components/Verify'
 import Login from './components/Login'
 import MyMainPage from './components/Main'
+
+
+import FoodHomeScreen from './components/Foods/HomeScreen';
+import MealSwipe from './components/Foods/MealSwipe'
+import DonateMealScreen from './components/Foods/DonateMeal';
+import RegisterMealScreen from './components/Foods/RegisterMeal';
+
 import Map from './components/Maps';
 
-const AppStack = createStackNavigator({ Home: MyMainPage, MapPage: Map });
+
+const AppStack = createStackNavigator({ Home: MyMainPage, MapPage: Map, FoodHome: FoodHomeScreen,
+    Meal: MealSwipe,
+    Donate: DonateMealScreen,
+    Register: RegisterMealScreen });
 
 const MainNavigator = createSwitchNavigator(
   {

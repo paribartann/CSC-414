@@ -8,8 +8,9 @@ export default class Loading extends React.Component {
 
 
   componentDidMount() {
+    
     auth.onAuthStateChanged( (user) => {
-          console.log("USER: ", user);
+         // console.log("USER: ", user);
           if (user)
           {
             console.log("VERIFY",user.emailVerified)

@@ -5,6 +5,7 @@ import firebase from './FirebaseConfig';
 
 export default class Profile extends Component {
 
+  _isMounted = false;
   constructor(props) {
     super(props);
 
@@ -16,13 +17,19 @@ export default class Profile extends Component {
   }
 
   componentDidMount() {
-
+    this._isMounted = true;
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        if (this._isMounted) {
         this.setState({ currentUser: user.displayName });
         this.setState({ email: user.email });
+        }
       }
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
 

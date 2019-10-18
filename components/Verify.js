@@ -5,8 +5,11 @@ import firebase from './FirebaseConfig';
 export default class Verify extends React.Component {
 
   componentDidMount() {
+
+    console.log("IN VERIFYYYY!")
     var userI = firebase.auth().currentUser;
-    if(userI.emailVerified)
+    console.log(userI);
+    if(!userI.emailVerified)
     {
       userI.sendEmailVerification()
       .then(function() {

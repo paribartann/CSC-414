@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, Alert, View, Image } from "react-native";
+import { KeyboardAvoidingView, StyleSheet, Text, Alert, View, Image } from "react-native";
 import { Container, Item, Form, Input, Button, Label } from "native-base";
 import firebase from './FirebaseConfig';
 import logo from '../images/logo.png';
@@ -59,7 +59,7 @@ export default class SignUp extends React.Component {
 
     render() {
     return (
-      <ScrollView>
+      <KeyboardAvoidingView style={{flex:1}} enabled behavior="padding" keyboardVerticalOffset= {100}>
         <Container style={styles.container}>
           <View >
             <Image resizeMode="contain" source={logo} />
@@ -122,7 +122,7 @@ export default class SignUp extends React.Component {
             </Button>
           </Form>
         </Container>
-      </ScrollView>
+      </KeyboardAvoidingView>
     )
   }
 }
