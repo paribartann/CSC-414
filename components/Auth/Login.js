@@ -1,8 +1,8 @@
 import React from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, Alert, View, Image } from "react-native";
 import { Container, Item, Form, Input, Button, Label } from "native-base";
-import firebase from './FirebaseConfig';
-import logo from '../images/logo.png';
+import firebase from '../MainPage/FirebaseConfig';
+import logo from './images/logo.png';
 
 
 const auth = firebase.auth();

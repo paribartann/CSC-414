@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
-import firebase from './FirebaseConfig';
+import firebase from '../MainPage/FirebaseConfig';
 
 const auth = firebase.auth();
 

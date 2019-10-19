@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Dimensions } from 'react-native'
 import MapView from 'react-native-maps';
 
-export default class Maps extends React.Component {
+export default class RenderMaps extends React.Component {
 
     constructor(props) {
         super(props);

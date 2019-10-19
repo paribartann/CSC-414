@@ -7,8 +7,8 @@ import { createDrawerNavigator, DrawerNavigatorItems } from 'react-navigation-dr
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import Profile from './Profile';
-import CampusScreen from './CampusHome';
+import Profile from '../College/Profile';
+import CampusScreen from '../College/CampusHome';
 
 // import Map from './Maps';
 // import FoodAppContainer from './Foods/FoodHomeScreen';

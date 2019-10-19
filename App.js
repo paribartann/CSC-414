@@ -2,14 +2,14 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import Loading from './components/Loading'
-import SignUp from './components/SignUp'
-import Verify from './components/Verify'
-import Login from './components/Login'
-import MyMainPage from './components/Main'
+import Loading from './components/Auth/Loading'
+import SignUp from './components/Auth/SignUp'
+import Verify from './components/Auth/Verify'
+import Login from './components/Auth/Login'
+import MyMainPage from './components/MainPage/Main'
 
-import CampusScreen from './components/CampusHome'
-import Map from './components/Maps';
+import CampusScreen from './components/College/CampusHome'
+import RenderMaps from './components/College/Maps';
 
 import FoodHomeScreen from './components/Foods/HomeScreen';
 import MealSwipe from './components/Foods/MealSwipe'
@@ -21,7 +21,7 @@ const AppStack = createStackNavigator(
   { 
     Home: { screen: MyMainPage, navigationOptions: { header: null } },
     CampusHome: CampusScreen, 
-    MapPage: Map, 
+    MapPage: RenderMaps, 
     FoodHome: FoodHomeScreen,
     Meal: MealSwipe,
     Donate: DonateMealScreen,

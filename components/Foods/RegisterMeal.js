@@ -9,7 +9,7 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { Form, Item, Input, Label } from 'native-base';
-import firebase from '../FirebaseConfig';
+import firebase from '../MainPage/FirebaseConfig';
 
 //import axios from 'axios';
 

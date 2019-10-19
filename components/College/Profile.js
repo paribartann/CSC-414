@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-import firebase from './FirebaseConfig';
+import firebase from '../MainPage/FirebaseConfig';
 
 
 export default class Profile extends Component {
