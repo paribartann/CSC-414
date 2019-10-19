@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, Button, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import firebase from './FirebaseConfig';
 
 import { createAppContainer } from 'react-navigation';
@@ -8,6 +8,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
+import CampusScreen from './CampusHome';
 
 // import Map from './Maps';
 // import FoodAppContainer from './Foods/FoodHomeScreen';
@@ -61,34 +62,18 @@ class Main extends React.Component {
 
   render() {
     return (
-
       <View style={styles.container}>
-        <View >
 
-          <Text style={{ fontSize: 18 }}>
-            Welcome to the main page! Hi, {this.state.currentUser}!
-        </Text>
-        </View>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('CampusHome')} style={styles.button}>
+            <Text style={styles.text}>Campus</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('FoodHome')} style={styles.button}>
+            <Text style={styles.text}>Food</Text>
+        </TouchableOpacity>
 
-        <View style={styles.menu}>
-          <Button
-            title="FOOD"
-            style={{ marginTop: 20 }}
-            onPress={() => this.props.navigation.navigate('FoodHome')
-            } />
-              
-          <Button
-            title="MAP"
-            style={{ marginTop: 20 }}
-            onPress={() => this.props.navigation.navigate('MapPage')
-            } />
-        </View>
-
+        <StatusBar hidden />
       </View>
-
-
-
-
     )
   }
 }
@@ -101,9 +86,9 @@ const HomeNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: '#3a9ad3',
+          backgroundColor: '#434343',
         },
-        headerTitle: 'Home',
+        headerTitle: 'College Guide',
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
@@ -133,7 +118,7 @@ const ProfileNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: '#3a9ad3',
+          backgroundColor: '#434343',
         },
         headerTitle: 'Profile',
         headerTintColor: '#fff',
@@ -159,16 +144,15 @@ const ProfileNavigator = createStackNavigator(
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
-
     Home: HomeNavigator,
-    Profile: ProfileNavigator
+    Profile: ProfileNavigator,
   },
   {
     initialRouteName: 'Home',
     contentComponent: customDrawerComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle'
+    drawerToggleRoute: 'DrawerToggle',
   },
 );
 
@@ -189,7 +173,7 @@ const MyMainPage = createAppContainer(MyDrawerNavigator);
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
+    //padding: 30,
     flex: 1,
     alignItems: 'center'
   },
@@ -216,7 +200,25 @@ const styles = StyleSheet.create({
     margin: 16,
     fontWeight: 'bold',
     color: 'rgba(0, 0, 0, .87)',
+  },
+
+  //Big button styles
+  button: {
+    marginTop: 15,
+    padding: 5,
+    borderRadius: 15,
+    height: 120,
+    width: '90%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffd147',
+  },
+  text: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 18,
   }
+
 })
 
 export default MyMainPage;

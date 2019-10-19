@@ -1,24 +1,32 @@
 import React, { Component } from "react";
 import {
+    TouchableOpacity,
     View,
+    Text,
     StyleSheet,
-    Button
 } from "react-native";
 
 class FoodHomeScreen extends Component {
+
+    static navigationOptions = {
+        headerTitle: 'Food',
+    }
 
     render() {
         return (
             <View style={styles.container}>
 
-                <Button title="Go To Meal Swipe Screen"
-                    onPress={() => this.props.navigation.navigate('Meal')} />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Meal')} style={styles.button}>
+                <Text style={styles.text}>Go to Meal Swipe Screen</Text>
+                </TouchableOpacity>
 
-                <Button title="Places to Eat"
-                    onPress={() => this.props.navigation.navigate('Meal')} />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Meal')} style={styles.button}>
+                <Text style={styles.text}>Food on Campus</Text>
+                </TouchableOpacity>
 
-                <Button title="Top Restaurants"
-                    onPress={() => this.props.navigation.navigate('Meal')} />
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Meal')} style={styles.button}>
+                <Text style={styles.text}>Food in Hattiesburg</Text>
+                </TouchableOpacity>
 
             </View>
         );
@@ -28,8 +36,22 @@ export default FoodHomeScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    button: {
+        marginTop: 15,
+        padding: 15,
+        borderRadius: 15,
+        height: 120,
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffd147',
+      },
+      text: {
+        color: '#fff',
+        fontWeight: '700',
+        fontSize: 18,
+      }
 });

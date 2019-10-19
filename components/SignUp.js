@@ -61,7 +61,7 @@ export default class SignUp extends React.Component {
     return (
       <KeyboardAvoidingView style={{flex:1}} enabled behavior="padding" keyboardVerticalOffset= {100}>
         <Container style={styles.container}>
-          <View >
+          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Image resizeMode="contain" source={logo} />
           </View>
           <Form>

@@ -13,6 +13,10 @@ import {
 
 class MealSwipe extends Component {
 
+    static navigationOptions = {
+        headerTitle: 'Meal Swipe',
+    }
+
     render() {
         return (
             <ScrollView>

@@ -8,19 +8,40 @@ import Verify from './components/Verify'
 import Login from './components/Login'
 import MyMainPage from './components/Main'
 
+import CampusScreen from './components/CampusHome'
+import Map from './components/Maps';
 
 import FoodHomeScreen from './components/Foods/HomeScreen';
 import MealSwipe from './components/Foods/MealSwipe'
 import DonateMealScreen from './components/Foods/DonateMeal';
 import RegisterMealScreen from './components/Foods/RegisterMeal';
 
-import Map from './components/Maps';
 
-
-const AppStack = createStackNavigator({ Home: MyMainPage, MapPage: Map, FoodHome: FoodHomeScreen,
+const AppStack = createStackNavigator(
+  { 
+    Home: { screen: MyMainPage, navigationOptions: { header: null } },
+    CampusHome: CampusScreen, 
+    MapPage: Map, 
+    FoodHome: FoodHomeScreen,
     Meal: MealSwipe,
     Donate: DonateMealScreen,
-    Register: RegisterMealScreen });
+    Register: RegisterMealScreen 
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#434343',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+      },
+    }
+  }
+);
 
 const MainNavigator = createSwitchNavigator(
   {

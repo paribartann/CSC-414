@@ -58,6 +58,9 @@ export default class Maps extends React.Component {
     }
 
 
+    static navigationOptions = {
+        headerTitle: 'Map',
+    }
 
     render() {
         return (
