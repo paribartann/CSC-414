@@ -36,8 +36,9 @@ export default FoodHomeScreen;
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: "gold"
     },
     button: {
         marginTop: 15,
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
         width: '90%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#ffd147',
+        backgroundColor: 'turquoise',
       },
       text: {
         color: '#fff',

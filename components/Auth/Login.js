@@ -59,7 +59,7 @@ export default class Login extends React.Component {
     return (
       <KeyboardAvoidingView style={{ flex: 1 }} enabled behavior="padding" keyboardVerticalOffset={100}>
         <Container style={styles.container}>
-          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor:"white" }}>
             <Image resizeMode="contain" source={logo} />
           </View>
           <Form>
@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
-    padding: 10
+    padding: 10,
+    backgroundColor: "gold",
   }
 
 });

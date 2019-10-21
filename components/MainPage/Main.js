@@ -1,6 +1,8 @@
 import React from 'react'
-import { StatusBar, StyleSheet, Text, View,
-         SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import {
+  StatusBar, StyleSheet, Text, View,
+  SafeAreaView, ScrollView, TouchableOpacity
+} from 'react-native'
 import firebase from './FirebaseConfig';
 
 import { createAppContainer } from 'react-navigation';
@@ -64,14 +66,14 @@ class Main extends React.Component {
       <View style={styles.container}>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('CampusHome')} style={styles.button}>
-            <Text style={styles.text}>Campus</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('FoodHome')} style={styles.button}>
-            <Text style={styles.text}>Food</Text>
+          <Text style={styles.text}>Campus</Text>
         </TouchableOpacity>
 
-       
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('FoodHome')} style={styles.button}>
+          <Text style={styles.text}>Food</Text>
+        </TouchableOpacity>
+
+
 
 
         <StatusBar hidden />
@@ -88,7 +90,7 @@ const HomeNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: '#434343',
+          backgroundColor: 'black',
         },
         headerTitle: 'College Guide',
         headerTintColor: '#fff',
@@ -120,7 +122,7 @@ const ProfileNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: '#434343',
+          backgroundColor: 'black',
         },
         headerTitle: 'Profile',
         headerTintColor: '#fff',
@@ -164,7 +166,8 @@ const styles = StyleSheet.create({
   container: {
     //padding: 30,
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: "gold"
   },
   menu: {
     padding: 10,
@@ -200,7 +203,7 @@ const styles = StyleSheet.create({
     width: '90%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffd147',
+    backgroundColor: 'turquoise',
   },
   text: {
     color: '#fff',

@@ -27,7 +27,8 @@ class CampusScreen extends React.Component {
   const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: "gold",
     },
     button: {
       marginTop: 15,
@@ -37,7 +38,7 @@ class CampusScreen extends React.Component {
       width: '90%',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#ffd147',
+      backgroundColor: 'turquoise',
     },
     text: {
       color: '#fff',

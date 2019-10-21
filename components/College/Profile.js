@@ -36,14 +36,15 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          USER: {this.state.currentUser}
-        </Text>
-        <Text>
-          EMAIL: {this.state.email}
-        </Text>
 
-
+        <Text style={{ padding: 20, fontSize: 24, fontWeight:"bold" }}>
+        USER: {this.state.currentUser}
+        </Text>
+      
+        <Text style={{ padding: 20, fontSize: 24, fontWeight:"bold" }}>
+        EMAIL: {this.state.email}
+        </Text>
+        
       </View>
     )
   }
@@ -52,6 +53,7 @@ export default class Profile extends Component {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    flex: 1
+    flex: 1,
+    backgroundColor: "gold"
   }
 })
