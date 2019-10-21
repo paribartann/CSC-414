@@ -9,6 +9,7 @@ export default class Verify extends React.Component {
     console.log("IN VERIFYYYY!")
     var userI = firebase.auth().currentUser;
     console.log(userI);
+    
     if(!userI.emailVerified)
     {
       userI.sendEmailVerification()

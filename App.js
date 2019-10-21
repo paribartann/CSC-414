@@ -2,15 +2,21 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+//for the auth
 import Loading from './components/Auth/Loading'
 import SignUp from './components/Auth/SignUp'
 import Verify from './components/Auth/Verify'
 import Login from './components/Auth/Login'
+
+//main page
 import MyMainPage from './components/MainPage/Main'
 
+//for colleges
 import CampusScreen from './components/College/CampusHome'
 import RenderMaps from './components/College/Maps';
 
+
+//for food
 import FoodHomeScreen from './components/Foods/HomeScreen';
 import MealSwipe from './components/Foods/MealSwipe'
 import DonateMealScreen from './components/Foods/DonateMeal';

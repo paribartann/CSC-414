@@ -14,9 +14,6 @@ export default class RenderMaps extends React.Component {
     }
 
     componentDidMount() {
-
-
-
         this.fetchMarkerData();
     }
 

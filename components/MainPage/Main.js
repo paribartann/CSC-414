@@ -1,5 +1,6 @@
 import React from 'react'
-import { StatusBar, StyleSheet, Text, View, Button, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import { StatusBar, StyleSheet, Text, View,
+         SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import firebase from './FirebaseConfig';
 
 import { createAppContainer } from 'react-navigation';
@@ -8,10 +9,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from '../College/Profile';
-import CampusScreen from '../College/CampusHome';
 
-// import Map from './Maps';
-// import FoodAppContainer from './Foods/FoodHomeScreen';
+
 
 const customDrawerComponent = (props) => (
 
@@ -71,6 +70,9 @@ class Main extends React.Component {
         <TouchableOpacity onPress={() => this.props.navigation.navigate('FoodHome')} style={styles.button}>
             <Text style={styles.text}>Food</Text>
         </TouchableOpacity>
+
+       
+
 
         <StatusBar hidden />
       </View>
@@ -156,20 +158,7 @@ const MyDrawerNavigator = createDrawerNavigator(
   },
 );
 
-
-// const MyMainPageStackNavigator = createStackNavigator(
-//   {
-//     HomePage: MyDrawerNavigator,
-//     MapPage: Map, 
-//     FoodAppContainer: FoodAppContainer 
-//   },
-// )
-
-
-// const MyMainPage = createAppContainer(MyMainPageStackNavigator);
-
 const MyMainPage = createAppContainer(MyDrawerNavigator);
-
 
 const styles = StyleSheet.create({
   container: {
