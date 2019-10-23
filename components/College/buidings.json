@@ -1,0 +1,26 @@
+    {
+        "buildings": [
+            {
+                "name": "Bobby Chain Technology",
+                "ShortForm": "TEC",
+                "colleges": [
+                    "School of Computing",
+                    "School of Construction",
+                    "School of Mathematics and Natural Sciences"
+                ],
+                "Lattitude": 31.329621,
+                "Longitude": -89.334068
+            },
+            {
+                "name": "Liberal Arts Building",
+                "ShortForm": "LAB",
+                "colleges": [
+                    "School of Computing",
+                    "School of Construction",
+                    "School of Mathematics and Natural Sciences"
+                ],
+                "Lattitude": 31.326913,
+                "Longitude": -89.336510
+            }
+        ]
+    }

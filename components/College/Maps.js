@@ -1,8 +1,16 @@
 import React from 'react'
 import { StyleSheet, View, Dimensions } from 'react-native'
 import MapView from 'react-native-maps';
+import firebase from '../MainPage/FirebaseConfig';
+
+const db = firebase.database();
 
 export default class RenderMaps extends React.Component {
+
+
+    static navigationOptions = {
+        headerTitle: 'Map',
+    }
 
     constructor(props) {
         super(props);
@@ -10,6 +18,7 @@ export default class RenderMaps extends React.Component {
         this.state = {
             isLoading: true,
             markers: [],
+            colleges : [],
         };
     }
 
@@ -19,12 +28,15 @@ export default class RenderMaps extends React.Component {
 
 
     fetchMarkerData() {
-        fetch('https://feeds.citibikenyc.com/stations/stations.json')
-            .then((response) => response.json())
+        fetch('https://csc-414-survival-app.firebaseio.com/buildings/buildings.json')
+            .then((response) => 
+                response.json()
+            )
             .then((responseJson) => {
+                console.log(responseJson);  
                 this.setState({
                     isLoading: false,
-                    markers: responseJson.stationBeanList,
+                    markers: responseJson,
                 });
             })
             .catch((error) => {
@@ -32,34 +44,37 @@ export default class RenderMaps extends React.Component {
             });
     }
 
+
+
     renderMarkers() {
         return this.state.isLoading
             ? null
             : this.state.markers.map((marker, index) => {
                 const coords = {
-                    latitude: marker.latitude,
-                    longitude: marker.longitude
+                    latitude: marker.Lattitude,
+                    longitude: marker.Longitude
                 };
 
-                const metadata = `Status: ${marker.statusValue}`;
+                const metadata = `Building: ${marker.name}`;
 
                 return (
                     <MapView.Marker
                         key={index}
                         coordinate={coords}
-                        title={marker.stationName}
+                        title={marker.shortForm}
                         description={metadata}
                     />
                 );
             });
     }
 
+    
 
-    static navigationOptions = {
-        headerTitle: 'Map',
-    }
+
+   
 
     render() {
+        
         return (
 
             <View style={styles.container}>
@@ -68,10 +83,10 @@ export default class RenderMaps extends React.Component {
                     style={styles.mapStyle}
                     provider="google"
                     region={{
-                        latitude: 40.76727216,
-                        longitude: -73.99392888,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421
+                        latitude: 31.329621,
+                        longitude: -89.334068,
+                        latitudeDelta: 0.01922,
+                        longitudeDelta: 0.01421
                     }}
                 >
                     {this.renderMarkers()}
@@ -85,6 +100,8 @@ export default class RenderMaps extends React.Component {
 
 
 }
+
+ 
 
 
 
