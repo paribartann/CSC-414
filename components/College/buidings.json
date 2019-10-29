@@ -1,0 +1,207 @@
+    {
+        "buildings": [
+            {
+                "name": "Chain Technology Center",
+                "ShortForm": "TEC",
+                "colleges": [
+                    "School of Computing Sciences and Engineering",
+                    "School of Construction and Design",
+                    "School of Mathematics and Natural Sciences",
+                    "School of Biological, Environmental, and Earth Sciences"
+                ],
+                "Lattitude": 31.329621,
+                "Longitude": -89.334068
+            },
+            {
+                "name": "Liberal Arts Building",
+                "ShortForm": "LAB",
+                "colleges": [
+                    "School of Humanities",
+                    "School of Social Science and Global Studies"
+                ],
+                "Lattitude": 31.326913,
+                "Longitude": -89.336510
+            },
+            {
+                "name": "Johnson Science Tower",
+                "ShortForm": "JST",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.329126,
+                "Longitude": -89.334336
+            },
+            {
+                "name": "Cook Library",
+                "ShortForm": "LIB",
+                "colleges": [
+                    "School of Library and Information Science"
+                ],
+                "Lattitude": 31.327724,
+                "Longitude": -89.334336
+            },
+            {
+                "name": "Thad Cochran Center",
+                "ShortForm": "TCC",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.329416,
+                "Longitude": -89.332754
+            },
+            {
+                "name": "R.C. Cook Union",
+                "ShortForm": "UN",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.328967,
+                "Longitude": -89.332872
+            },
+            {
+                "name": "Walker Science Building",
+                "ShortForm": "WSB",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.328609,
+                "Longitude": -89.333516
+            },
+            {
+                "name": "Marsh Hall - Fine Arts Building",
+                "ShortForm": "FAB",
+                "colleges": [
+                    "School of Music",
+                    "School of Performing and Visual Arts"
+                ],
+                "Lattitude": 31.325456,
+                "Longitude": -89.333946
+            },
+            {
+                "name": "Reed Green Coliseum",
+                "ShortForm": "",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.331221,
+                "Longitude": -89.337945
+            },
+            {
+                "name": "Payne Center",
+                "ShortForm": "PAYN",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.330488,
+                "Longitude": -89.336455
+            },
+            {
+                "name": "Scianna Hall",
+                "ShortForm": "",
+                "colleges": [
+                    "School of Accountancy",
+                    "School of Finance",
+                    "School of Management",
+                    "School of Marketing"
+                ],
+                "Lattitude": 31.329947,
+                "Longitude": -89.3297070
+            },
+            {
+                "name": "Thames Polymer Science Research Center",
+                "ShortForm": "PSRC",
+                "colleges": [
+                    "School of Polymer Science and Engineering"
+                ],
+                "Lattitude": 31.329196,
+                "Longitude": -89.335125
+            },
+            {
+                "name": "Trent Lott National Center",
+                "ShortForm": "",
+                "colleges": [
+                    ""
+                ],
+                "Lattitude": 31.328756,
+                "Longitude": -89.329686
+            },
+            {
+                "name": "Elizabeth Harkins Hall",
+                "ShortForm": "EHH",
+                "colleges": [
+                    "School of Health Professions",
+                    ""
+                ],
+                "Lattitude": 31.326859,
+                "Longitude": -89.337881
+            },
+            {
+                "name": "Asbury Hall",
+                "ShortForm": "AH",
+                "colleges": [
+                    "School of Leadership and Advanced Nursing Practice",
+                    "School of Professional Nursing Practice"
+                ],
+                "Lattitude": 31.328078,
+                "Longitude": -89.338545
+            },
+            {
+                "name": "Southern Hall",
+                "ShortForm": "SH",
+                "colleges": [
+                    "Department of Aerospace Studies",
+                    "Department of Military Science"
+                ],
+                "Lattitude": 31.326080,
+                "Longitude": -89.331854
+            },
+            {
+                "name": "College Hall",
+                "ShortForm": "CH",
+                "colleges": [
+                    "School of Communication"
+                ],
+                "Lattitude": 31.326034,
+                "Longitude": -89.333461
+            },
+            {
+                "name": "Arthell Kelley Hall",
+                "ShortForm": "AKH",
+                "colleges": [
+                    "School of Criminal Justice, Forensic Science and Security"
+                ],
+                "Lattitude": 31.325731,
+                "Longitude": -89.335724
+            },
+            {
+                "name": "Joseph Greene Hall",
+                "ShortForm": "JGH",
+                "colleges": [
+                    "School of Child and Family Sciences",
+                    "School of Kinesiology and Nutrition",
+                    "School of Social Work"
+                ],
+                "Lattitude": 31.327277,
+                "Longitude": -89.335772
+            },
+            {
+                "name": "Owens-McQuagge Hall",
+                "ShortForm": "OMH",
+                "colleges": [
+                    "School of Psychology"
+                ],
+                "Lattitude": 31.327896,
+                "Longitude": -89.335017
+            },
+            {
+                "name": "J.B. George Building",
+                "ShortForm": "JBG",
+                "colleges": [
+                    "School of Education",
+                    "School of Speech and Hearing Sciences"
+                ],
+                "Lattitude": 31.329406,
+                "Longitude": -89.338321
+            }
+        ]
+    }

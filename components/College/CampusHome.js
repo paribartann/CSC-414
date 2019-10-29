@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { TouchableOpacity, StyleSheet, Button, View, Text } from 'react-native';
+import firebase from '../MainPage/FirebaseConfig';
 
 class CampusScreen extends React.Component {
 
@@ -10,6 +11,7 @@ class CampusScreen extends React.Component {
       justifyContent: 'center',
     }
   }
+
 
   render() {
     return (

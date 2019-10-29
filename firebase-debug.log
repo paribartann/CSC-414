@@ -1,0 +1,40 @@
+[debug] [2019-10-22T16:29:51.525Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T16:29:51.527Z] Command:       /usr/local/bin/node /usr/local/bin/firebase database:set /buildings components/College/buildings.json
+[debug] [2019-10-22T16:29:51.528Z] CLI Version:   7.6.1
+[debug] [2019-10-22T16:29:51.528Z] Platform:      darwin
+[debug] [2019-10-22T16:29:51.528Z] Node Version:  v10.16.3
+[debug] [2019-10-22T16:29:51.529Z] Time:          Tue Oct 22 2019 11:29:51 GMT-0500 (Central Daylight Time)
+[debug] [2019-10-22T16:29:51.529Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T16:29:51.529Z] 
+[debug] [2019-10-22T16:29:51.541Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-22T16:29:51.541Z] > authorizing via signed-in user
+[debug] [2019-10-22T16:29:51.542Z] [iam] checking project csc-414-survival-app for permissions ["firebase.projects.get","firebasedatabase.instances.update"]
+[debug] [2019-10-22T16:29:51.544Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/csc-414-survival-app:testIamPermissions  
+
+[debug] [2019-10-22T16:29:51.793Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-22T16:29:51.796Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/csc-414-survival-app  
+ 
+[debug] [2019-10-22T16:29:52.153Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-22T16:30:17.612Z] Error: ENOENT: no such file or directory, open 'components/College/buildings.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-10-22T16:32:41.652Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T16:32:41.654Z] Command:       /usr/local/bin/node /usr/local/bin/firebase database:set /buildings components/College/buildings.json
+[debug] [2019-10-22T16:32:41.655Z] CLI Version:   7.6.1
+[debug] [2019-10-22T16:32:41.655Z] Platform:      darwin
+[debug] [2019-10-22T16:32:41.655Z] Node Version:  v10.16.3
+[debug] [2019-10-22T16:32:41.656Z] Time:          Tue Oct 22 2019 11:32:41 GMT-0500 (Central Daylight Time)
+[debug] [2019-10-22T16:32:41.656Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T16:32:41.656Z] 
+[debug] [2019-10-22T16:32:41.670Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-22T16:32:41.671Z] > authorizing via signed-in user
+[debug] [2019-10-22T16:32:41.671Z] [iam] checking project csc-414-survival-app for permissions ["firebase.projects.get","firebasedatabase.instances.update"]
+[debug] [2019-10-22T16:32:41.673Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/csc-414-survival-app:testIamPermissions  
+
+[debug] [2019-10-22T16:32:42.174Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-22T16:32:42.176Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/csc-414-survival-app  
+ 
+[debug] [2019-10-22T16:32:42.919Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-22T16:32:44.392Z] Error: ENOENT: no such file or directory, open 'components/College/buildings.json'
+[error] 
+[error] Error: An unexpected error has occurred.
