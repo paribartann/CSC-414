@@ -1,69 +1,79 @@
-import React from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, Alert, View, Image } from "react-native";
+import React from "react";
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  Alert,
+  View,
+  Image
+} from "react-native";
 import { Container, Item, Form, Input, Button, Label } from "native-base";
-import firebase from '../MainPage/FirebaseConfig';
-import logo from './images/logo.png';
-
+import firebase from "../MainPage/FirebaseConfig";
+import logo from "./images/logo.png";
 
 const auth = firebase.auth();
 
 export default class Login extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       isLoggedIn: false,
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: ""
+    };
   }
 
   _handleLogin = async () => {
-
-    const { email, password } = this.state
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userData) => {
-       // console.log(userData)
+    const { email, password } = this.state;
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userData => {
+        // console.log(userData)
 
         if (userData.user.emailVerified) {
-          this.props.navigation.navigate('App');
+          this.props.navigation.navigate("App");
+        } else {
+          this.props.navigation.navigate("VerifyScreen");
         }
-        else {
-          this.props.navigation.navigate('VerifyScreen');
-        }
-
-      })  //end of then
-      .catch((error) => {
+      }) //end of then
+      .catch(error => {
         console.log(error.code);
         switch (error.code) {
-          case 'auth/wrong-password':
-            Alert.alert('WRONG PASSWORD!')
+          case "auth/wrong-password":
+            Alert.alert("WRONG PASSWORD!");
             break;
 
-          case 'auth/user-not-found':
-            Alert.alert('USER NOT FOUND!')
+          case "auth/user-not-found":
+            Alert.alert("USER NOT FOUND!");
             break;
 
-          case 'auth/invalid-email':
-            Alert.alert('INVALID EMAIL!')
+          case "auth/invalid-email":
+            Alert.alert("INVALID EMAIL!");
             break;
         }
       });
-
-  }
-
-
+  };
 
   render() {
     return (
-      <KeyboardAvoidingView style={{ flex: 1 }} enabled behavior="padding" keyboardVerticalOffset={100}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        enabled
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
         <Container style={styles.container}>
-          <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor:"white" }}>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "white"
+            }}
+          >
             <Image resizeMode="contain" source={logo} />
           </View>
           <Form>
-
             <Item floatingLabel>
               <Label>Email</Label>
               <Input
@@ -97,20 +107,16 @@ export default class Login extends React.Component {
               rounded
               success
               style={{ marginTop: 20 }}
-              onPress={() => this.props.navigation.navigate('SignUp')}
+              onPress={() => this.props.navigation.navigate("SignUp")}
             >
               <Text>Don't have an account? Sign Up</Text>
             </Button>
-
-
           </Form>
         </Container>
       </KeyboardAvoidingView>
-    )
+    );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -118,7 +124,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     padding: 10,
-    backgroundColor: "gold",
+    backgroundColor: "gold"
   }
-
 });

@@ -1,40 +1,47 @@
-import React from 'react'
+import React from "react";
 import {
-  StatusBar, StyleSheet, Text, View,
-  SafeAreaView, ScrollView, TouchableOpacity
-} from 'react-native'
-import firebase from './FirebaseConfig';
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
+import firebase from "./FirebaseConfig";
 
-import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator, DrawerNavigatorItems } from 'react-navigation-drawer';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from "react-navigation";
+import {
+  createDrawerNavigator,
+  DrawerNavigatorItems
+} from "react-navigation-drawer";
+import { createStackNavigator } from "react-navigation-stack";
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import Profile from '../College/Profile';
+import Icon from "react-native-vector-icons/Ionicons";
+import Profile from "../College/Profile";
 
-
-
-const customDrawerComponent = (props) => (
-
+const customDrawerComponent = props => (
   <ScrollView>
-
-    <SafeAreaView style={styles.containerA} forceInset={{ top: 'always', horizontal: 'never' }}>
-      <DrawerNavigatorItems  {...props} />
+    <SafeAreaView
+      style={styles.containerA}
+      forceInset={{ top: "always", horizontal: "never" }}
+    >
+      <DrawerNavigatorItems {...props} />
     </SafeAreaView>
 
-    <TouchableOpacity onPress={() => {
-      firebase.auth().signOut()
-    }} >
+    <TouchableOpacity
+      onPress={() => {
+        firebase.auth().signOut();
+      }}
+    >
       <View style={styles.item}>
         <Text style={styles.label}>Logout</Text>
       </View>
     </TouchableOpacity>
-
   </ScrollView>
-)
+);
 
 class Main extends React.Component {
-
   _isMounted = false;
 
   constructor(props) {
@@ -60,104 +67,103 @@ class Main extends React.Component {
     this._isMounted = false;
   }
 
-
   render() {
     return (
       <View style={styles.container}>
-
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('CampusHome')} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("CampusHome")}
+          style={styles.button}
+        >
           <Text style={styles.text}>Campus</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('FoodHome')} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("FoodHome")}
+          style={styles.button}
+        >
           <Text style={styles.text}>Food</Text>
         </TouchableOpacity>
 
-
-
-
         <StatusBar hidden />
       </View>
-    )
+    );
   }
 }
 
 const HomeNavigator = createStackNavigator(
   {
-    Home: Main,
+    Home: Main
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: 'black',
+          backgroundColor: "black"
         },
-        headerTitle: 'College Guide',
-        headerTintColor: '#fff',
+        headerTitle: "College Guide",
+        headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: 'bold',
-          textAlign: 'center',
-          flex: 1,
+          fontWeight: "bold",
+          textAlign: "center",
+          flex: 1
         },
         headerLeft: (
-          <Icon style={{ paddingLeft: 10, color: 'white' }}
+          <Icon
+            style={{ paddingLeft: 10, color: "white" }}
             onPress={() => navigation.openDrawer()}
             name="md-menu"
-            size={30} />
+            size={30}
+          />
         ),
-        headerRight: (
-          <View />
-        )
-      }
+        headerRight: <View />
+      };
     }
   }
 );
-
 
 const ProfileNavigator = createStackNavigator(
   {
-    Profile: Profile,
+    Profile: Profile
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: 'black',
+          backgroundColor: "black"
         },
-        headerTitle: 'Profile',
-        headerTintColor: '#fff',
+        headerTitle: "Profile",
+        headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: 'bold',
-          textAlign: 'center',
-          flex: 1,
+          fontWeight: "bold",
+          textAlign: "center",
+          flex: 1
         },
         headerLeft: (
-          <Icon style={{ paddingLeft: 10, color: 'white' }}
+          <Icon
+            style={{ paddingLeft: 10, color: "white" }}
             onPress={() => navigation.openDrawer()}
             name="md-menu"
-            size={30} />
+            size={30}
+          />
         ),
-        headerRight: (
-          <View />
-        )
-      }
+        headerRight: <View />
+      };
     }
   }
 );
-
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
     Home: HomeNavigator,
-    Profile: ProfileNavigator,
+    Profile: ProfileNavigator
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: "Home",
     contentComponent: customDrawerComponent,
-    drawerOpenRoute: 'DrawerOpen',
-    drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle',
-  },
+    drawerOpenRoute: "DrawerOpen",
+    drawerCloseRoute: "DrawerClose",
+    drawerToggleRoute: "DrawerToggle"
+  }
 );
 
 const MyMainPage = createAppContainer(MyDrawerNavigator);
@@ -166,32 +172,32 @@ const styles = StyleSheet.create({
   container: {
     //padding: 30,
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: "gold"
   },
   menu: {
     padding: 10,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   containerA: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column"
   },
   logoutButton: {
-    backgroundColor: 'red',
-    position: 'absolute',
+    backgroundColor: "red",
+    position: "absolute",
     bottom: 0
   },
   item: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center"
   },
   label: {
     margin: 16,
-    fontWeight: 'bold',
-    color: 'rgba(0, 0, 0, .87)',
+    fontWeight: "bold",
+    color: "rgba(0, 0, 0, .87)"
   },
 
   //Big button styles
@@ -200,21 +206,16 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 15,
     height: 120,
-    width: '90%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'turquoise',
+    width: "90%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "turquoise"
   },
   text: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 18,
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 18
   }
-
-})
+});
 
 export default MyMainPage;
-
-
-
-
