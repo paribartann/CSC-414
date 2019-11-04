@@ -3,10 +3,14 @@ import { StyleSheet, View, Dimensions, Text } from "react-native";
 import MapView from "react-native-maps";
 import * as Permissions from "expo-permissions";
 import Polyline from '@mapbox/polyline';
+import { GOOGLE_DIRECTION_API } from '../../ENVVAR';
+
 
 const { width, height } = Dimensions.get('screen')
 
 export default class RenderMaps extends React.Component {
+
+  
   static navigationOptions = {
     headerTitle: "Map"
   };
@@ -125,7 +129,7 @@ export default class RenderMaps extends React.Component {
 
   async getDirections(startLocation, endLocation) {
     try {
-        let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLocation }&destination=${ endLocation }&mode=walking&key=AIzaSyBd39A8nyL7z_i4Ww_J_EN5LF2ZoncajVg`)
+        let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLocation }&destination=${ endLocation }&mode=walking&key=${GOOGLE_DIRECTION_API}`)
         let respJson = await resp.json();
         let response = respJson.routes[0];
         let distanceTime = response.legs[0]
@@ -148,6 +152,7 @@ export default class RenderMaps extends React.Component {
 
 
   render() {
+   
       const { latitude, longitude, coords, time, distance, pressed, name, shortForm } = this.state
       console.log(coords);
       if(latitude)
