@@ -1,0 +1,15 @@
+{
+    "restaurants": [
+        {
+            "name": "Chick Fil A",
+            "ShortForm":"none",
+            "cuisine": [
+                "Fast Food (chicken)"
+                
+            ],
+            "Lattitude": 31.328982,
+            "Longitude": -89.332722
+        }
+
+    ]
+}
