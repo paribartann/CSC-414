@@ -6,11 +6,11 @@ import {
     Image,
     TouchableOpacity,
     ScrollView,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    Alert
 } from "react-native";
 import { Form, Item, Input, Label, Icon } from 'native-base';
-import firebase from '../MainPage/FirebaseConfig';
-
+import firebase from "../MainPage/FirebaseConfig";
 
 
 
@@ -29,21 +29,35 @@ export default class DonateMealScreen extends Component {
     }
 
     addDonor() {
-        //const newDonor=firebase.database().ref().child('DonorList').push();
-        //newDonor.set(this.state);
-        //console.log(this.props.navigation);
-        firebase.database().ref().child('DonorList').push().set(this.state)
-            .then(() => {
-                this.props.navigation.navigate('Meal')
-            });
-        const data = this.state;
-        //axios.post('https://us-central1-c-survival.cloudfunctions.net/sendMail', data)
-        //  .then(res => {
-        // here will be code
-        //})
-        //.catch(error => {
-        //   console.log(error);
-        // });
+        var that = this;
+
+        var total_meals = 0;
+        firebase.database().ref('TotalMealsDonated').once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+            total_meals = parseInt(snapshot.val()) + parseInt(that.state.meals);
+            //console.log(total_meals);
+            var updates = {};
+            //console.log(total_meals);
+            updates['/TotalMealsDonated'] = total_meals;
+            firebase.database().ref().update(updates);
+          });
+
+        firebase.database().ref().child('DonorList').push().set(this.state);
+            //.then(() => {
+              //  this.props.navigation.navigate('Meal')
+            //});
+
+            Alert.alert(
+                'Swipe share',
+                'Thank you for your generous support',
+                [
+                  {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ],
+                {cancelable: false},
+              );
+        
+           
+            
     }
 
     validateName() {
@@ -67,7 +81,7 @@ export default class DonateMealScreen extends Component {
                         <Form style={styles.form}>
                             <Item floatingLabel last>
                                 <Label>Name</Label>
-                                <Input placeholder="Name" name="name" onChangeText={(text) => this.setState({ name: text })} maxLength={20} />
+                                <Input placeholder="Name" name="name" onChangeText={(text) => this.setState({ name: text })} maxLength={15} />
                                 {/*<Input placeholder="Name" name="Name" onBlur={this.validateName.bind(this)} />*/}
                                 {/*<Input placeholder="Name" name="Name"  onChangeText={(text)=> this.donorName = text} 
                                                                         onBlur={this.validateName} 
@@ -122,5 +136,3 @@ const styles = StyleSheet.create({
         width: 300,
     }
 });
-
-

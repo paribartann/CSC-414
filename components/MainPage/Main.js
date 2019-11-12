@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     //padding: 30,
     flex: 1,
     alignItems: "center",
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   },
   menu: {
     padding: 10,
