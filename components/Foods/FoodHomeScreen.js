@@ -11,7 +11,7 @@ class FoodHomeScreen extends Component {
         return (
             <View style={styles.container}>
 
-                <Button title="Go To Meal Swipe Screen"
+                <Button title="Meal Swipe"
                     onPress={() => this.props.navigation.navigate('Meal')} />
 
                 <Button title="Places to Eat"

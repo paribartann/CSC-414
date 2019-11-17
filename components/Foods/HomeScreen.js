@@ -13,7 +13,7 @@ class FoodHomeScreen extends Component {
           onPress={() => this.props.navigation.navigate("Meal")}
           style={styles.button}
         >
-          <Text style={styles.text}>Go to Meal Swipe Screen</Text>
+          <Text style={styles.text}>Meal Swipe</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   },
   button: {
     marginTop: 15,
