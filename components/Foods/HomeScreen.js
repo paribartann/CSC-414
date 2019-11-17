@@ -13,18 +13,18 @@ class FoodHomeScreen extends Component {
           onPress={() => this.props.navigation.navigate("Meal")}
           style={styles.button}
         >
-          <Text style={styles.text}>Go to Meal Swipe Screen</Text>
+          <Text style={styles.text}>Meal Swipe</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Meal")}
+          onPress={() => this.props.navigation.navigate("OnCampusFood")}
           style={styles.button}
         >
           <Text style={styles.text}>Food on Campus</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Meal")}
+          onPress={() => this.props.navigation.navigate("OffCampusFood")}
           style={styles.button}
         >
           <Text style={styles.text}>Food in Hattiesburg</Text>

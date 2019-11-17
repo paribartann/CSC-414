@@ -21,7 +21,8 @@ import FoodHomeScreen from './components/Foods/HomeScreen';
 import MealSwipe from './components/Foods/MealSwipe'
 import DonateMealScreen from './components/Foods/DonateMeal';
 import RegisterMealScreen from './components/Foods/RegisterMeal';
-
+import OnCampusFood from './components/Foods/onCampusFood';
+import OffCampusFood from './components/Foods/offCampusFood';
 
 const AppStack = createStackNavigator(
   { 
@@ -30,6 +31,8 @@ const AppStack = createStackNavigator(
     MapPage: RenderMaps, 
     FoodHome: FoodHomeScreen,
     Meal: MealSwipe,
+    OnCampusFood: OnCampusFood,
+    OffCampusFood: OffCampusFood,
     Donate: DonateMealScreen,
     Register: RegisterMealScreen 
   },

@@ -3,12 +3,131 @@
         {
             "name": "Chick Fil A",
             "ShortForm":"none",
+<<<<<<< HEAD
             "cuisine": [
                 "Fast Food (chicken)"
                 
             ],
             "Lattitude": 31.328982,
             "Longitude": -89.332722
+=======
+            "cuisine": "Fast food(chicken)",
+            "Address": "Union Building, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 7:30AM - 8:30PM", 
+                "Friday: 7:30AM - 6:00PM", 
+                "Saturday: 11:00AM - 4:00PM", 
+                "Sunday: Closed"
+            ]
+        },
+
+        {
+            "name": "Subway",
+            "ShortForm":"none",
+            "cuisine": "Subs and Pizza",
+            "Address": "Union Building, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 7:30AM - 8:30PM", 
+                "Friday: 7:30AM - 6:00PM", 
+                "Saturday: 11:00AM - 7:00PM", 
+                "Sunday: 12:00PM - 11:00PM"
+            ]
+        },
+
+        {
+            "name": "Starbucks",
+            "ShortForm":"none",
+            "cuisine": "Coffee and Pastries",
+            "Address": "Cook Library, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 7:30AM - 8:30PM", 
+                "Friday: 7:30AM - 6:00PM", 
+                "Saturday: 11:00AM - 7:00PM", 
+                "Sunday: 12:00PM - 11:00PM"
+            ]
+        },
+
+        {
+            "name": "The Grub Slinger",
+            "ShortForm":"none",
+            "cuisine": "Varies",          
+            "Address": "118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Friday: 11:00PM - 2PM",                 
+                "Saturday - Sunday: Closed"                
+            ]
+        },
+
+        {
+            "name": "Fresh Fod Company",
+            "ShortForm":"The Fresh",
+            "cuisine": "Wide selection cafeteria",
+            "Address": "Thad Cochran Center, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 7:00AM - 9:00PM", 
+                "Friday: 7:00AM - 8:00PM", 
+                "Saturday: 9:00AM - 7:00PM", 
+                "Sunday: 9:00PM - 9:00PM"
+            ]
+        },
+
+        {
+            "name": "Zoca",
+            "ShortForm":"none",
+            "cuisine": "Mexican",
+            "Address": "International Center, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 10:30AM - 7:00PM", 
+                "Friday: 10:30AM - 2:00PM", 
+                "Saturday - Sunday: Closed"
+            ]
+        },
+
+        {
+            "name": "Einstein Bros. Bagels",
+            "ShortForm":"none",
+            "cuisine": "Coffee and Bagels",
+            "Address": "International Center, 118 College Dr, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Thursday: 10:30AM - 7:00PM", 
+                "Friday: 10:30AM - 2:00PM", 
+                "Saturday - Sunday: Closed"
+            ]
+        },
+
+        {
+            "name": "Oath",
+            "ShortForm":"none",
+            "cuisine": "Pizza",
+            "Address": "2901 W. 4th Street, Hattiesburg, MS 39406",
+            "Hours": [
+                "Monday - Friday: 10:30AM - 12:00AM",                 
+                "Saturday - Sunday: 6:00PM - 12:00AM"
+            ]
+        },
+
+        {
+            "name": "Freshens",
+            "ShortForm":"none",
+            "cuisine": "Fresh, healthy food",
+            "Address": "Ashbury Hall, 3215 Montague Blvd., Hattiesburg, MS 39401",
+            "Hours": [
+                "Monday - Thursday: 7:30AM - 7:00PM", 
+                "Friday: 7:30AM - 5:00PM", 
+                "Saturday - Sunday: Closed"
+            ]
+        },        
+
+        {
+            "name": "The Powerhouse",
+            "ShortForm":"none",
+            "cuisine": "Comfort Food",
+            "Address": "College Dr, Hattiesburg, MS 39401",
+            "Hours": [
+                "Monday - Friday: 10:30AM - 12:00AM (Closed from 2:00PM - 5:00PM)", 
+                " Saturday: 6:00PM - 12:00AM"                 
+            ]
+>>>>>>> 52fc3b1ee4b125d864ebf5c135d5892c0132bbeb
         }
 
     ]
