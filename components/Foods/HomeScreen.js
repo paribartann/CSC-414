@@ -24,7 +24,7 @@ class FoodHomeScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Meal")}
+          onPress={() => this.props.navigation.navigate("OffCampusFood")}
           style={styles.button}
         >
           <Text style={styles.text}>Food in Hattiesburg</Text>
