@@ -1,6 +1,5 @@
 import * as React from "react";
 import { TouchableOpacity, StyleSheet, Button, View, Text } from "react-native";
-import firebase from "../MainPage/FirebaseConfig";
 
 class CampusScreen extends React.Component {
   static navigationOptions = {
@@ -18,7 +17,13 @@ class CampusScreen extends React.Component {
           onPress={() => this.props.navigation.navigate("MapPage")}
           style={styles.button}
         >
-          <Text style={styles.text}>Map</Text>
+          <Text style={styles.text}>College Map</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("MapPage")}
+          style={styles.button}
+        >
+          <Text style={styles.text}>College Tips</Text>
         </TouchableOpacity>
       </View>
     );
