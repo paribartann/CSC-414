@@ -3,13 +3,13 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  Image,
   View,
   SafeAreaView,
   ScrollView,
   TouchableOpacity
 } from "react-native";
 import firebase from "./FirebaseConfig";
-
 import { createAppContainer } from "react-navigation";
 import {
   createDrawerNavigator,
@@ -82,6 +82,7 @@ class Main extends React.Component {
           style={styles.button}
         >
           <Text style={styles.text}>Food</Text>
+
         </TouchableOpacity>
 
         <StatusBar hidden />
@@ -98,7 +99,7 @@ const HomeNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: "black"
+          backgroundColor: "#434343"
         },
         headerTitle: "College Guide",
         headerTintColor: "#fff",
@@ -129,7 +130,7 @@ const ProfileNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
-          backgroundColor: "black"
+          backgroundColor: "#434343"
         },
         headerTitle: "Profile",
         headerTintColor: "#fff",
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     //padding: 30,
     flex: 1,
     alignItems: "center",
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   },
   menu: {
     padding: 10,

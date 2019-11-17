@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     flex: 1,
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   }
 });

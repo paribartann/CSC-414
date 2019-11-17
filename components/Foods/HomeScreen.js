@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   },
   button: {
     marginTop: 15,
