@@ -32,6 +32,7 @@ class CampusScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: "50%",
     flex: 1,
     alignItems: "center",
     backgroundColor: "#f2f2f2"

@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get("screen");
 
 export default class OnCampusFood extends React.Component {
   static navigationOptions = {
-    headerTitle: "OnCampusFood"
+    headerTitle: "On Campus Food"
   };
 
   constructor(props) {
@@ -47,13 +47,21 @@ export default class OnCampusFood extends React.Component {
             address: marker.Address,
             openingHours: marker.Hours
           };
+          const textInputComponents = coords.openingHours.map((type, index) => <Text style={{fontSize: 17}}> {type} </Text> )
+          const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
           return (
-            <View>
-              <Text>Name: {coords.name}</Text>
-              <Text>Cuisine: {coords.cuisine}</Text>
-              <Text>Address: {coords.address}</Text>
-              <Text>opening Hours: {coords.openingHours}</Text>
+            <View style={{
+              padding: 25,
+              margin: 5,
+              border: "2px solid palevioletred",
+              backgroundColor:'papayawhip'
+            }}>
+              <Text style={{color:'palevioletred',fontSize: 22, fontWeight:"bold", alignSelf:"center", paddingBottom:5}}>{coords.name}</Text>
+              <Text style={{fontSize: 18, padding:5}}><B>Cuisine:</B> {coords.cuisine}</Text>
+              <Text style={{fontSize: 18, padding:5}}><B>Address:</B> {coords.address}</Text>
+              <Text style={{fontSize: 18, padding:5}}><B>Opening Hours:</B> </Text>
+              {textInputComponents}
             </View>
           );
         });
@@ -65,7 +73,7 @@ export default class OnCampusFood extends React.Component {
     return (
         <View style={styles.container}>
             <ScrollView style={{ flex: 1 }}>
-                {this.renderRestaurants()}
+              {this.renderRestaurants()}
             </ScrollView>
         </View>
      

@@ -82,7 +82,6 @@ class Main extends React.Component {
           style={styles.button}
         >
           <Text style={styles.text}>Food</Text>
-
         </TouchableOpacity>
 
         <StatusBar hidden />
@@ -171,7 +170,7 @@ const MyMainPage = createAppContainer(MyDrawerNavigator);
 
 const styles = StyleSheet.create({
   container: {
-    //padding: 30,
+    paddingTop: "50%",
     flex: 1,
     alignItems: "center",
     backgroundColor: "#f2f2f2"

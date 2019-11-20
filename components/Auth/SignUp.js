@@ -146,6 +146,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     padding: 10,
-    backgroundColor: "gold"
+    backgroundColor: "#f2f2f2"
   }
 });

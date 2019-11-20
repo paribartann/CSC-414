@@ -1,16 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Dimensions, Text } from "react-native";
+import { SearchBar } from "react-native-elements";
 import MapView from "react-native-maps";
 import * as Permissions from "expo-permissions";
-import Polyline from '@mapbox/polyline';
-import { GOOGLE_DIRECTION_API } from '../../ENVVAR';
+import Polyline from "@mapbox/polyline";
+import { GOOGLE_DIRECTION_API } from "../../ENVVAR";
 
-
-const { width, height } = Dimensions.get('screen')
+const { width, height } = Dimensions.get("screen");
 
 export default class RenderMaps extends React.Component {
-
-  
   static navigationOptions = {
     headerTitle: "Map"
   };
@@ -45,16 +43,17 @@ export default class RenderMaps extends React.Component {
     }
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        }, this.mergeCoords);
+        this.setState(
+          {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          },
+          this.mergeCoords
+        );
       },
       error => this.setState({ error: error.message }),
       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 }
     );
-
-
   }
 
   async fetchMarkerData() {
@@ -75,15 +74,18 @@ export default class RenderMaps extends React.Component {
   }
 
   onMarkerPress = location => () => {
-    const { latitude, longitude, name, shortForm  } = location
-    this.setState({
+    const { latitude, longitude, name, shortForm } = location;
+    this.setState(
+      {
         pressed: true,
         desLatitude: latitude,
         desLongitude: longitude,
         name: name,
         shortForm: shortForm
-    }, this.mergeCoords)
-  }
+      },
+      this.mergeCoords
+    );
+  };
 
   renderMarkers() {
     return this.state.isLoading
@@ -110,105 +112,139 @@ export default class RenderMaps extends React.Component {
         });
   }
 
-
   mergeCoords = () => {
-    const {
-        latitude,
-        longitude,
-        desLatitude,
-        desLongitude
-    } = this.state
+    const { latitude, longitude, desLatitude, desLongitude } = this.state;
 
-    const hasStartAndEnd = latitude !== null && desLatitude !== null
-    if(hasStartAndEnd) {
-        const concatStart = `${latitude},${longitude}`
-        const concatEnd = `${desLatitude},${desLongitude}`
-        this.getDirections(concatStart, concatEnd)
+    const hasStartAndEnd = latitude !== null && desLatitude !== null;
+    if (hasStartAndEnd) {
+      const concatStart = `${latitude},${longitude}`;
+      const concatEnd = `${desLatitude},${desLongitude}`;
+      this.getDirections(concatStart, concatEnd);
     }
-  }
+  };
 
   async getDirections(startLocation, endLocation) {
     try {
-        let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLocation }&destination=${ endLocation }&mode=walking&key=${GOOGLE_DIRECTION_API}`)
-        let respJson = await resp.json();
-        let response = respJson.routes[0];
-        let distanceTime = response.legs[0]
-        let distance = distanceTime.distance.text
-        let time = distanceTime.duration.text
-        let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
-        let coords = points.map((point) => {
-            return  {
-                latitude : point[0],
-                longitude : point[1]
-            }
-        })
-        this.setState({ coords, distance, time })
-    } catch(error) {
-     
-       console.log("ERROR", error)
-        
+      let resp = await fetch(
+        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLocation}&destination=${endLocation}&mode=walking&key=${GOOGLE_DIRECTION_API}`
+      );
+      let respJson = await resp.json();
+      let response = respJson.routes[0];
+      let distanceTime = response.legs[0];
+      let distance = distanceTime.distance.text;
+      let time = distanceTime.duration.text;
+      let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
+      let coords = points.map(point => {
+        return {
+          latitude: point[0],
+          longitude: point[1]
+        };
+      });
+      this.setState({ coords, distance, time });
+    } catch (error) {
+      console.log("ERROR", error);
     }
-}
-
+  }
 
   render() {
-   
-      const { latitude, longitude, coords, time, distance, pressed, name, shortForm } = this.state
-      console.log(coords);
-      if(latitude)
-      {
-        return (
-            
-              <MapView
-              showsUserLocation
-                style={styles.mapStyle}
-                provider="google"
-                initialRegion={{
-                  latitude,
-                  longitude,
-                  latitudeDelta: 0.01922,
-                  longitudeDelta: 0.01421
-                }}
-              >
-                  {pressed &&  <View style={styles.extraInfoStyle}>
-                      <Text style={{fontWeight:'bold'}}> Destination : {name}({shortForm}) </Text>
-                    <Text style={{fontWeight:'bold'}}>Estimated Time: {time} </Text>
-                    <Text style={{fontWeight:'bold'}}>Estimated Distance: {distance} </Text>
-                  </View> }
-                 
-                 {this.renderMarkers()}   
-                 <MapView.Polyline
-                 strokeWidth={5}
-                 strokeColor='red'
-                 coordinates={coords}
-                 />
-              </MapView>
-          
-          );
-      }
+    const {
+      latitude,
+      longitude,
+      coords,
+      time,
+      distance,
+      pressed,
+      name,
+      shortForm
+    } = this.state;
+    console.log(coords);
+    if (latitude) {
       return (
-          <View style={{flex:1, justifyContent: 'center', alignItems:'center'}}>
-              <Text>We need your permission!</Text>
-          </View>
-      )
     
+         
+          
+          <MapView
+            showsUserLocation
+            style={styles.mapStyle}
+            provider="google"
+            initialRegion={{
+              latitude,
+              longitude,
+              latitudeDelta: 0.01922,
+              longitudeDelta: 0.01421
+            }}
+          >
+            {pressed && (
+              <View style={styles.extraInfoStyle}>
+                <Text style={{ fontWeight: "bold" }}>
+                  {" "}
+                  Destination : {name}({shortForm}){" "}
+                </Text>
+                <Text style={{ fontWeight: "bold" }}>
+                  Estimated Time: {time}{" "}
+                </Text>
+                <Text style={{ fontWeight: "bold" }}>
+                  Estimated Distance: {distance}{" "}
+                </Text>
+              </View>
+            )}
+            <SearchBar style={styles.searchBarStyle}
+            ref="searchBar"
+            placeholder="Find me"
+            barStyle="black"
+            showsCancelButtonWhileEditing={false}
+          />
+            {this.renderMarkers()}
+            <MapView.Polyline
+              strokeWidth={5}
+              strokeColor="red"
+              coordinates={coords}
+            />
+          </MapView>
+  
+      );
+    }
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>We need your permission!</Text>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  
   mapStyle: {
-      flex: 1,
-    width: Dimensions.get('screen').width,
+    flex: 1,
+    width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height
   },
-  extraInfoStyle : {
+  searchBarStyle: {
+    position: "absolute"
+  },
+  extraInfoStyle: {
     width,
-    alignSelf: 'center',
-    height: height*0.07,
-    alignItems: 'center',
-    backgroundColor: 'white',
+    alignSelf: "center",
+    height: height * 0.07,
+    alignItems: "center",
+    backgroundColor: "white",
     justifyContent: "flex-end",
-    paddingTop: 10,
+    paddingTop: 10
+  },
+  calloutView: {
+    flexDirection: "row",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    borderRadius: 10,
+    width: "40%",
+    marginLeft: "30%",
+    marginRight: "30%",
+    marginTop: 20
+  },
+  calloutSearch: {
+    borderColor: "transparent",
+    marginLeft: 10,
+    width: "90%",
+    marginRight: 10,
+    height: 40,
+    borderWidth: 0.0
   }
 });
