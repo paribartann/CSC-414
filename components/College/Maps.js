@@ -28,7 +28,8 @@ export default class RenderMaps extends React.Component {
       coords: null,
       pressed: false,
       name: null,
-      shortForm: null
+      shortForm: null,
+      query: '',
     };
   }
 
@@ -86,6 +87,13 @@ export default class RenderMaps extends React.Component {
       this.mergeCoords
     );
   };
+
+  handleInputChange = query => {
+    this.setState({ query })
+  }
+
+
+  
 
   renderMarkers() {
     return this.state.isLoading
@@ -155,14 +163,13 @@ export default class RenderMaps extends React.Component {
       distance,
       pressed,
       name,
-      shortForm
+      shortForm, 
+      query
     } = this.state;
     console.log(coords);
     if (latitude) {
       return (
     
-         
-          
           <MapView
             showsUserLocation
             style={styles.mapStyle}
@@ -188,13 +195,15 @@ export default class RenderMaps extends React.Component {
                 </Text>
               </View>
             )}
+
+            
             <SearchBar style={styles.searchBarStyle}
-            ref="searchBar"
-            placeholder="Find me"
-            barStyle="black"
-            showsCancelButtonWhileEditing={false}
+            placeholder="Enter the place"
+            onChangeText={(text) => this.handleInputChange(text)}
+            inputStyle={{color:'white'}}
+            value={query}
           />
-            {this.renderMarkers()}
+            {/* {this.renderMarkers()} */}
             <MapView.Polyline
               strokeWidth={5}
               strokeColor="red"

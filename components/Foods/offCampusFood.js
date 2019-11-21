@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, Text, ScrollView, TextInput } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  ScrollView,
+  TextInput
+} from "react-native";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -47,20 +54,42 @@ export default class OffCampusFood extends React.Component {
             address: marker.address,
             openingHours: marker.hours
           };
-          const textInputComponents = coords.openingHours.map((type, index) => <Text style={{fontSize: 17}}> {type} </Text> )
-          const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
+          const textInputComponents = coords.openingHours.map((type, index) => (
+            <Text style={{ fontSize: 17 }}> {type} </Text>
+          ));
+          const B = props => (
+            <Text style={{ fontWeight: "bold" }}>{props.children}</Text>
+          );
 
           return (
-            <View style={{
-              padding: 25,
-              margin: 5,
-              border: "2px solid palevioletred",
-              backgroundColor:'papayawhip'
-            }}>
-              <Text style={{color:'palevioletred',fontSize: 22, fontWeight:"bold", alignSelf:"center", paddingBottom:5}}>{coords.name}</Text>
-              <Text style={{fontSize: 18, padding:5}}><B>Cuisine:</B> {coords.cuisine}</Text>
-              <Text style={{fontSize: 18, padding:5}}><B>Address:</B> {coords.address}</Text>
-              <Text style={{fontSize: 18, padding:5}}><B>Opening Hours:</B> </Text>
+            <View
+              style={{
+                padding: 25,
+                margin: 5,
+                border: "2px solid palevioletred",
+                backgroundColor: "papayawhip"
+              }}
+            >
+              <Text
+                style={{
+                  color: "palevioletred",
+                  fontSize: 22,
+                  fontWeight: "bold",
+                  alignSelf: "center",
+                  paddingBottom: 5
+                }}
+              >
+                {coords.name}
+              </Text>
+              <Text style={{ fontSize: 18, padding: 5 }}>
+                <B>Cuisine:</B> {coords.cuisine}
+              </Text>
+              <Text style={{ fontSize: 18, padding: 5 }}>
+                <B>Address:</B> {coords.address}
+              </Text>
+              <Text style={{ fontSize: 18, padding: 5 }}>
+                <B>Opening Hours:</B>{" "}
+              </Text>
               {textInputComponents}
             </View>
           );
@@ -71,12 +100,9 @@ export default class OffCampusFood extends React.Component {
     const {} = this.state;
 
     return (
-        <View style={styles.container}>
-            <ScrollView style={{ flex: 1 }}>
-                {this.renderRestaurants()}
-            </ScrollView>
-        </View>
-     
+      <View style={styles.container}>
+        <ScrollView style={{ flex: 1 }}>{this.renderRestaurants()}</ScrollView>
+      </View>
     );
   }
 }

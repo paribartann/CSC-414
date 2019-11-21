@@ -14,6 +14,7 @@ import MyMainPage from './components/MainPage/Main'
 //for colleges
 import CampusScreen from './components/College/CampusHome'
 import RenderMaps from './components/College/Maps';
+import CollegeTips from './components/College/collegeTips';
 
 
 //for food
@@ -29,6 +30,7 @@ const AppStack = createStackNavigator(
     Home: { screen: MyMainPage, navigationOptions: { header: null } },
     CampusHome: CampusScreen, 
     MapPage: RenderMaps, 
+    CollegeTips: CollegeTips,
     FoodHome: FoodHomeScreen,
     Meal: MealSwipe,
     OnCampusFood: OnCampusFood,

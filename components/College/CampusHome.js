@@ -20,7 +20,7 @@ class CampusScreen extends React.Component {
           <Text style={styles.text}>College Map</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("MapPage")}
+          onPress={() => this.props.navigation.navigate("CollegeTips")}
           style={styles.button}
         >
           <Text style={styles.text}>College Tips</Text>
