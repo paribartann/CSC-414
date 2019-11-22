@@ -7,7 +7,8 @@ import {
   View,
   SafeAreaView,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground
 } from "react-native";
 import firebase from "./FirebaseConfig";
 import { createAppContainer } from "react-navigation";
@@ -70,18 +71,39 @@ class Main extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("CampusHome")}
-          style={styles.button}
-        >
-          <Text style={styles.text}>Campus</Text>
-        </TouchableOpacity>
+        <ImageBackground source={require('./campusimg.jpg')} style={{width: '100%', height: 190}}>
+          <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontSize: 18, color: '#fff', fontWeight: "900"}}>The University of Southern Mississippi</Text>
+          </View>
+        </ImageBackground>
+        
+          
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("CampusHome")}
+            style={styles.button}
+          >
+            <ImageBackground
+            style={styles.imageBackground}
+            imageStyle={{borderRadius: 15}}
+            source={require('./campusButton.jpg')}
+            >
+            <Text style={styles.text}>Campus</Text>
+            </ImageBackground>
+          </TouchableOpacity>
+          
+
 
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate("FoodHome")}
           style={styles.button}
         >
-          <Text style={styles.text}>Food</Text>
+          <ImageBackground
+            style={styles.imageBackground}
+            imageStyle={{borderRadius: 15}}
+            source={require('./food.jpg')}
+            >
+            <Text style={styles.text}>Food</Text>
+            </ImageBackground>
         </TouchableOpacity>
 
         <StatusBar hidden />
@@ -170,7 +192,7 @@ const MyMainPage = createAppContainer(MyDrawerNavigator);
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: "50%",
+    //paddingTop: "50%",
     flex: 1,
     alignItems: "center",
     backgroundColor: "#f2f2f2"
@@ -203,19 +225,26 @@ const styles = StyleSheet.create({
   //Big button styles
   button: {
     marginTop: 15,
-    padding: 5,
+    //padding: 5,
     borderRadius: 15,
     height: 120,
     width: "90%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "turquoise"
+    backgroundColor: 'rgba(255,209,71,0.7)'
   },
   text: {
     color: "#fff",
     fontWeight: "700",
     fontSize: 18
-  }
+  },
+  imageBackground: {
+    flex: 1, 
+    width: '100%', 
+    height: '100%', 
+    alignItems: "center", 
+    justifyContent:'center',
+  },
 });
 
 export default MyMainPage;

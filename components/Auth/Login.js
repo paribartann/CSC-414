@@ -96,7 +96,7 @@ export default class Login extends React.Component {
             <Button
               full
               rounded
-              style={{ marginTop: 20 }}
+              style={{ marginTop: 20, backgroundColor: '#ffd147' }}
               onPress={this._handleLogin}
             >
               <Text>Login</Text>
@@ -106,7 +106,7 @@ export default class Login extends React.Component {
               full
               rounded
               success
-              style={{ marginTop: 20 }}
+              style={{ marginTop: 20, backgroundColor: '#ffd147' }}
               onPress={() => this.props.navigation.navigate("SignUp")}
             >
               <Text>Don't have an account? Sign Up</Text>
@@ -124,6 +124,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     padding: 10,
-    backgroundColor: "#f2f2f2"
   }
 });

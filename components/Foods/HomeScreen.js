@@ -37,7 +37,7 @@ export default FoodHomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: "40%",
+    //paddingTop: "40%",
     flex: 1,
     alignItems: "center",
     backgroundColor: "#f2f2f2"
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: "90%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "turquoise"
+    backgroundColor: "#ffd147"
   },
   text: {
     color: "#fff",
